@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Image Gallery</title>
+   
+   <link rel="stylesheet" href="styles.css">
+   <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+*
+{
+ padding:0px;
+ margin:0px;
+ font-family: 'poppins';
+}
+body {
+ font-family:'poppins';
+ background-color: #f0f0f0;
+ margin: 0;
+ padding: 0;
+  display: flex;
+ justify-content: center;
+ align-items: center; 
+ height: 100vh;
+}
+
+h1
+{
+ position: absolute;
+ top:20px;
+ left:20px;
+ width:100px;
+ display: flex;
+ border-bottom: 2px solid black;
+ text-align: center;
+ cursor:pointer
+}
+#h3
+{
+ position: absolute;
+ top:30px;
+ left:400px;
+ font-size: 30px;
+ font-weight: 200;
+ margin:auto;
+ cursor:pointer;
+ color:rgb(46, 46, 46);
+ display: flex;
+ flex-wrap: wrap;
+}
+
+.thumbnail  {
+ cursor: pointer;
+ width: 300px;
+ height: 300px;
+ object-fit: cover;
+ transition: transform 0.3s ease;
+ gap:10px;
+ margin:20px;
+ border-radius: 10px;
+ box-shadow: 4px 8px 12px 0px grey;
+}
+
+.thumbnail:hover {
+ transform: scale(1.1);
+}
+
+.large-image-container {
+ display: flex;
+ justify-content: center;
+}
+
+.large-image {
+ width: 100%;
+ max-width: 800px;
+ height: auto;
+ display: none;
+}
+.thumbnails
+{
+ display:flex;
+ list-style: none;
+ justify-content: center;
+ align-items: center;
+ flex-wrap: wrap;
+ width:100%;
+ max-width: 100vw;
+ position: absolute;
+ top:200px;
+}
+button{
+    position: absolute;
+    top:120px;
+    outline:none;
+    border: none;
+    background-color: rgb(12, 15, 17);
+    padding:10px;
+    width:200px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(128, 128, 128, 0.709);
+    font-weight: 600;
+    font-size: 17px;
+    color:rgb(255, 255, 255)
+}
+#imageToggle
+{
+    display:none;
+}
+@media screen and (max-width:438px) {
+    #h3
+    {
+        display:none;
+    }
+    button
+    {
+        top:160px;
+        width:180px;
+        font-size: 15px;
+        background-color: rgb(16, 17, 19);
+        color:white
+    }
+}
+
+   </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+   
+       <div class="nav"> <h1> Image Gallary <span style="font-size: 80px;">.</span></h1>
+       </div>
+       <div id="h3">Please drag your cursor to the image to see the effect</div>
+
+        <ul class="thumbnails">
+            <li><a href="index2.html"><img class="thumbnail" src="https://hips.hearstapps.com/hmg-prod/images/sonoran-sunset-royalty-free-image-1700512327.jpg?resize=1200:*" data-full="images/image1.jpg" alt="Thumbnail 1"></a></li>
+            <li ><a href="index3.html"><img class="thumbnail" src="https://cdn.pixabay.com/photo/2024/03/31/06/17/googles-8666108_1280.jpg" alt=""></a></li>
+            <li><a href="index4.html"><img class="thumbnail" src="https://cdn.pixabay.com/photo/2023/07/27/11/42/mountain-8153221_1280.jpg" data-full="images/image3.jpg" alt="Thumbnail 3"></a></li>
+            <li><a href="index5.html"><img class="thumbnail" src="https://cdn.pixabay.com/photo/2024/03/21/14/29/car-8647797_1280.jpg" data-full="images/image4.jpg" alt="Thumbnail 4"></a></li>
+            <li><a href="index6.html"><img class="thumbnail" src="https://cdn.pixabay.com/photo/2022/09/22/04/23/seascape-7471616_1280.jpg" alt=""></a></li>
+            <li><a href="index7.html"><img class="thumbnail" src="https://cdn.pixabay.com/photo/2024/06/19/05/37/animal-8839173_1280.jpg" alt=""></a></li>
+            <li><a href="index8.html"><img class="thumbnail" src="https://wallpapers.com/images/high/rockefeller-center-glowing-angel-statues-m2c4ep5insaxj4uq.webp" alt="" ></a></li>
+            <li><a href="index9.html"><img class="thumbnail" src="https://wallpapers.com/images/high/maple-ridge-canada-sunrise-4k-landscape-26e6uocgj2wpa9qs.webp" alt="" id="imageToggle"></a></li>
+            <li><a href="index10.html"><img class="thumbnail" src="https://wallpapers.com/images/high/home-interior-pictures-1500-x-1000-cpdxj1ufx9onovwj.webp" data-full="https://wallpapers.com/images/high/home-interior-pictures-1500-x-1000-cpdxj1ufx9onovwj.webp" alt="Thumbnail 2" ></a></li>
+        </ul>
+       <button> Click Me For Surprise</button>
+
+    </div>
+    <!-- JavaScript Code -->
+    <script>
+       
+        $(document).ready(function () {
+   
+
+   // Function to handle image transition
+   function showLargeImage(imageSrc) {
+       $('.large-image').fadeOut(200, function () {
+           $(this).attr('src', imageSrc).fadeIn(200);
+       });
+   }
+
+   // Attach click event listeners to thumbnails
+   $('.thumbnail').click(function () {
+       const thumbnailId = $(this).attr('id');
+       const largeImageSrc = largeImages[thumbnailId];
+       showLargeImage(largeImageSrc);
+   });
+
+   // Display the first large image initially
+   showLargeImage(largeImages["thumb1"]);
+
+
+});
+
+$('button').click(function(){
+    $('#imageToggle').fadeToggle();
+})
+
+
+$('#largeImage').click(function () {
+                $(this).fadeOut(200);
+            });
+    </script>
+</body>
+</html>

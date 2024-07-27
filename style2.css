@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+*
+{
+    font-family: 'poppins';
+}
+.img-sec
+{
+    height:650px;
+    width:650px;
+    margin:30px 20px 0px;
+    float: left;
+    position: relative;
+    top:100px;
+}
+img
+{
+    height:100%;
+    width:100%;
+    object-fit: contain;
+}
+.details
+{
+    position: relative;
+    top:250px;
+    
+}
+p{
+    font-size: 30px;
+    position: relative;
+    left:200px;
+    display: block;
+    
+}
+#h1
+{
+    font-size: 30px;
+    position: relative;
+    left:200px;
+    border-bottom: 2px solid black;
+    display:inline;
+    padding:0px 20px 0px;
+    font-weight: 800;
+}
+#about
+{
+    width:85vw;
+}
+input{
+    outline:none;
+    border: 1px solid black;
+    width:300px;
+    height:30px;
+    padding:10px;
+    position: relative;
+    left:200px;
+    border-radius: 5px;
+}
+h1 {
+    position: absolute;
+    top:0px;
+    left:20px;
+    width:100px;
+    display: flex;
+    border-bottom: 2px solid black;
+    text-align: center;
+    cursor:pointer;
+
+}
+@media screen and (max-width:438px) {
+    h1
+    {
+        top:-20px;
+        font-weight: 800;
+    }
+    .img-sec
+{
+    height:320px;
+    width:320px;
+    margin:30px 20px 0px;
+    position: absolute;
+    top:90px;
+}
+.details
+{
+    top:450px;
+    left:0px;
+    
+}
+#h1 
+{
+    left:20px;
+    font-weight: 700;
+}
+input
+{
+    left:20px;
+}
+p{
+    left:20px;
+}
+span
+{
+    font-weight: 600;
+}
+}
